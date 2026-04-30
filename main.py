@@ -5,7 +5,7 @@ import os
 from dotenv import load_dotenv
 load_dotenv()
 
-from app.inbody_extractor import InBodyExtractor
+from inbody_extractor import InBodyExtractor
 
 app = FastAPI(
     title="InBody OCR API",
@@ -49,7 +49,7 @@ async def analyze_inbody(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail=str(e))
 
 
-# ✅ مهم لـ Railway (اختياري لكنه مفيد)
+# ✅ متوافق مع Railway
 if __name__ == "__main__":
     import uvicorn
     port = int(os.environ.get("PORT", 8000))
